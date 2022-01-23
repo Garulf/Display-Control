@@ -7,7 +7,7 @@ BRIGHTNESS_STEPS = [100, 75, 50, 25, 0]
 class DisplayControl(Flox):
 
     def __init__(self):
-        super().__init__(debug=True)
+        super().__init__()
         self.monitors = []
         for monitor in get_monitors():
             self.monitors.append(monitor)
