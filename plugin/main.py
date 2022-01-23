@@ -13,11 +13,6 @@ class DisplayControl(Flox):
             self.monitors.append(monitor)
 
     def query(self, query):
-        self.add_item(
-            title="All Monitors",
-            icon=self.icon,
-            context=[None]
-        )
         for idx, monitor in enumerate(self.monitors):
             title = f"Monitor {idx + 1}"
             if query.lower() in title.lower():
@@ -29,6 +24,12 @@ class DisplayControl(Flox):
                         icon=self.icon,
                         context=[idx]
                     )
+        if len(self._results) > 1:
+            self.add_item(
+                title="All Monitors",
+                icon=self.icon,
+                context=[None]
+            )
 
 
     def context_menu(self, data):
