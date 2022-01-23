@@ -1,0 +1,12 @@
+{
+    "ID": "65F4326A64E94044950BC53F4524ACC5",
+    "ActionKeyword": "di",
+    "Name": "Display Control",
+    "Description": "Control your monitors Brightness, Contrast, Power state, and Input using MCCS.",
+    "Author": "Garulf",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/Garulf/display-control",
+    "IcoPath": "./icon.png",
+    "ExecuteFileName": "run.py"
+}
