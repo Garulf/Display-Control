@@ -4,7 +4,7 @@
     "Name": "Display Control",
     "Description": "Control your monitors Brightness, Contrast, Power state, and Input using MCCS.",
     "Author": "Garulf",
-    "Version": "0.0.1",
+    "Version": "0.0.2",
     "Language": "python",
     "Website": "https://github.com/Garulf/display-control",
     "IcoPath": "./icon.png",
