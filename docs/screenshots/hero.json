@@ -1,0 +1,26 @@
+{
+  "keyword": "di",
+  "query": "",
+  "icon": "../../data/icon.png",
+  "max_results": 3,
+  "selection": 0,
+  "results": [
+    {
+      "title": "Monitor 1",
+      "subtitle": "Brightness: 80",
+      "icon": "../../data/icon.png"
+    },
+    {
+      "title": "Monitor 2",
+      "subtitle": "Brightness: 45",
+      "icon": "../../data/icon.png"
+    },
+    {
+      "title": "All Monitors",
+      "subtitle": "",
+      "icon": "../../data/icon.png"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": true
+}
