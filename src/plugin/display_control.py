@@ -18,7 +18,8 @@ def query(query: str) -> List[Result]:
         title = f"Monitor {index + 1}"
         if query.lower() in title.lower():
             luminance = monitors.get_luminance(monitor)
-            results.append(Result(title=title, subtitle=f"Brightness: {luminance}", icon=ICON, context_data=[index]))
+            brightness = "unavailable" if luminance is None else luminance
+            results.append(Result(title=title, subtitle=f"Brightness: {brightness}", icon=ICON, context_data=[index]))
     if len(results) > 1:
         results.append(Result(title="All Monitors", icon=ICON, context_data=[None]))
     return results

@@ -1,4 +1,8 @@
 """Every DDC/CI call goes through here so the rest of the plugin can run without real monitors."""
+import logging
+from typing import Optional
+
+logger = logging.getLogger(__name__)
 
 
 def get_monitors() -> list:
@@ -7,11 +11,22 @@ def get_monitors() -> list:
     return get_monitors()
 
 
-def get_luminance(monitor) -> int:
-    with monitor:
-        return monitor.get_luminance()
+def get_luminance(monitor) -> Optional[int]:
+    from monitorcontrol.vcp import VCPError
+
+    try:
+        with monitor:
+            return monitor.get_luminance()
+    except VCPError:
+        logger.warning("Could not read brightness over DDC/CI", exc_info=True)
+        return None
 
 
 def set_luminance(monitor, brightness: int) -> None:
-    with monitor:
-        monitor.set_luminance(brightness)
+    from monitorcontrol.vcp import VCPError
+
+    try:
+        with monitor:
+            monitor.set_luminance(brightness)
+    except VCPError:
+        logger.warning("Could not set brightness over DDC/CI", exc_info=True)

@@ -1,6 +1,7 @@
 import asyncio
 
 import display_control
+from conftest import FakeMonitor
 from display_control import BRIGHTNESS_STEPS, context_menu, query, set_luminance
 
 
@@ -65,3 +66,20 @@ def test_plugin_registers_flow_launcher_methods():
 def test_query_through_the_jsonrpc_dispatcher(displays):
     response = asyncio.run(display_control.plugin._event_handler.trigger_event("query", "monitor 1"))
     assert [item["Title"] for item in response["Result"]] == ["Monitor 1"]
+
+
+def test_monitor_without_ddc_ci_does_not_hide_the_others(displays):
+    displays.insert(0, FakeMonitor(ddc_ci=False))
+    results = query("")
+    assert titles(results) == ["Monitor 1", "Monitor 2", "Monitor 3", "All Monitors"]
+    assert [result.subtitle for result in results[:3]] == [
+        "Brightness: unavailable",
+        "Brightness: 80",
+        "Brightness: 30",
+    ]
+
+
+def test_all_monitors_skips_a_monitor_without_ddc_ci(displays):
+    displays.insert(0, FakeMonitor(ddc_ci=False))
+    set_luminance(0, None)
+    assert [monitor.luminance for monitor in displays[1:]] == [0, 0]
