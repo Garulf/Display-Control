@@ -1,0 +1,62 @@
+{% extends "base.md.j2" %}
+
+{% block badges_extra %} [![Downloads](https://img.shields.io/github/downloads/{{ project.owner }}/{{ project.repo }}/total)]({{ project.url }}/releases/latest){% endblock %}
+
+{% block usage %}
+## Features
+
+* **Every monitor at a glance.** Each connected monitor is listed with its current brightness.
+* **Quick brightness steps.** Set 100%, 75%, 50%, 25% or 0% from the context menu.
+* **All monitors at once.** With more than one monitor, **All Monitors** sets them together.
+* **No vendor tools.** Talks to your monitors directly over DDC/CI.
+
+## Usage
+
+Type `di` to list your monitors:
+
+```
+di
+```
+
+{{ screenshot("search", alt="Monitors listed in Flow Launcher") }}
+
+Add a number to pick one monitor, for example `di 2`.
+
+### Set the brightness
+
+Open the context menu on a monitor or on **All Monitors** (`Shift+Enter` or right-click) and pick a level:
+
+{{ screenshot("context", alt="Brightness levels in the context menu") }}
+
+A monitor that does not answer DDC/CI, such as most laptop panels, shows its brightness as unavailable.
+Turn on DDC/CI in your monitor's on-screen menu if it is off.
+
+## Installation
+
+Display Control is not in the Flow Launcher plugin store. Download `Display-Control-<version>.zip` from the
+[latest release]({{ project.url }}/releases/latest) and unzip it into `%appdata%\FlowLauncher\Plugins`, then restart
+Flow Launcher.
+
+Pre-releases of the next version are published from the open release PR on the
+[releases page]({{ project.url }}/releases) for testing. Flow Launcher won't offer them as updates.
+
+## Requirements
+
+* Windows, with monitors that support DDC/CI
+* Flow Launcher 1.17.0 or newer
+* Python 3.8 or newer, which Flow Launcher can install for you
+
+{% set recent = changelog(3) %}
+{% if recent %}
+## Changelog
+
+{{ recent }}
+
+See [CHANGELOG.md](CHANGELOG.md) for the full history.
+{% endif %}
+{% endblock %}
+
+{% block screenshots %}{% endblock %}
+{% block install %}{% endblock %}
+{% block contributing %}{% endblock %}
+{% block license %}{% endblock %}

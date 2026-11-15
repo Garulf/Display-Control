@@ -1,0 +1,36 @@
+{
+  "keyword": "di",
+  "query": "monitor 2",
+  "icon": "../../data/icon.png",
+  "max_results": 5,
+  "selection": 2,
+  "results": [
+    {
+      "title": "100%",
+      "subtitle": "Set brightness to 100%",
+      "icon": "../../data/brightness.png"
+    },
+    {
+      "title": "75%",
+      "subtitle": "Set brightness to 75%",
+      "icon": "../../data/brightness.png"
+    },
+    {
+      "title": "50%",
+      "subtitle": "Set brightness to 50%",
+      "icon": "../../data/brightness.png"
+    },
+    {
+      "title": "25%",
+      "subtitle": "Set brightness to 25%",
+      "icon": "../../data/brightness.png"
+    },
+    {
+      "title": "0%",
+      "subtitle": "Set brightness to 0%",
+      "icon": "../../data/brightness.png"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": false
+}
